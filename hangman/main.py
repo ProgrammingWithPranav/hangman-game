@@ -116,7 +116,7 @@ while run:
         break
 
     if hangman_status == 6:
-        display_message("Yuo Lost!")
+        display_message("You Lost!")
         display_message("The word was " + word)
         break
 
