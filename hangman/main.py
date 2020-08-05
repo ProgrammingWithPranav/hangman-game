@@ -27,16 +27,18 @@ TITLE_FONT = pygame.font.SysFont('comicsans', 70)
 #load images
 images = []
 for i in range(7):
-    image = pygame.image.load("hangman" + str(i) + ".png")
+    image = pygame.image.load("E:/muddu/Python Projects/hangman-game/hangman/hangman" + str(i) + ".png")
     images.append(image)
 
 #game variables
 hangman_status = 0
-words = [
-    "PYGAME", "PYTHON", "JARVIS", "SOAP", "FRANCE", "INDIA", "DEVELOPER",
-    "DEVELOP", "DEVELOPMENT", "GOOGLE", "YOUTUBE", "'FACEBOOK", "JAZZ",
-    "EARTH", "MARS", "JUPITER", "SATURN", "URANUS", "PLUTO", "NEPTUNE"
-    ]
+with open("E:/muddu/Python Projects/hangman-game/hangman/words.txt", "r") as f:
+    words = []
+
+    for line in f:
+        wrd = line.strip()
+        words.append(wrd)
+
 word = random.choice(words)
 guessed = []
 
@@ -116,7 +118,7 @@ while run:
         break
 
     if hangman_status == 6:
-        display_message("Yuo Lost!")
+        display_message("You Lost!")
         display_message("The word was " + word)
         break
 
